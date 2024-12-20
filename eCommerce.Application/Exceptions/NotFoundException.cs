@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eCommerce.Application.DTO.Category
+namespace eCommerce.Application.Exceptions
 {
-    public class CreateCategory
+    public class NotFoundException(string message) : Exception(message)
     {
-        public string? Name { get; set; }
     }
 }

@@ -17,6 +17,13 @@ namespace eCormmerce.Infrastructure.Repository
         public async Task<IEnumerable<TEntity>> GetAll() => await context
             .Set<TEntity>()
             .AsNoTracking()
-            .ToListAsync();      
+            .ToListAsync();
+
+        public async Task<bool> IsAvailableByName(string name)
+        {
+           var item = await context.Set<TEntity>()
+        .FirstOrDefaultAsync(x => EF.Property<string>(x, "Name") == name);
+            return item != null;
+        }
     }
 }

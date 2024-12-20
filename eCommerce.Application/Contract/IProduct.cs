@@ -14,14 +14,6 @@ namespace eCommerce.Application.Contract
         Task Delete(int id);
         Task<Product?> Get(int id);
         Task<IEnumerable<Product>> GetAll();
-    }
-
-    public interface ICategory
-    {
-        void Add(Category category);
-        void Update(Category category);
-        void Delete(Category category);
-        Task<Category?> Get(int id);
-        Task<IEnumerable<Category>> GetAll();
+        Task<bool> IsAvailableByName(string name);
     }
 }

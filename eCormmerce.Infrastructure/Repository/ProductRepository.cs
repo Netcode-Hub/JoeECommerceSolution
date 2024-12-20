@@ -19,21 +19,4 @@ namespace eCormmerce.Infrastructure.Repository
             
         }
     }
-
-    public class CategoryRepository(AppDbContext context) : GenericRepository<Category>(context), ICategory
-    {
-        public void Delete(Category category) => context.Categories.Remove(category);
-        
-    }
-
-    public interface IUnitOfWork
-    {
-        Task SaveChangesAsync();
-    }
-
-    public class UnitOfWork(AppDbContext context) : IUnitOfWork
-    {
-        public async Task SaveChangesAsync() => await context.SaveChangesAsync();
-        
-    }
 }
